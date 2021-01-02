@@ -21,7 +21,7 @@ cd /usr/bin
 wget -O mampos "https://raw.githubusercontent.com/wildyvpnnet/wildyvpnnet.github.io/main/mampos.sh"
 chmod +x mampos
 cd
-echo "* * * * * root /usr/bin/tendang" >> /etc/crontab
+echo "* * * * * root /usr/bin/mampos" >> /etc/crontab
 echo "* * * * * root sleep 5; /usr/bin/mampos" >> /etc/crontab
 echo "* * * * * root sleep 10; /usr/bin/mampos" >> /etc/crontab
 echo "* * * * * root sleep 15; /usr/bin/mampos" >> /etc/crontab
