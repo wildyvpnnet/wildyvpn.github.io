@@ -1,15 +1,6 @@
 #!/bin/bash
 #Script Auto Kill - Block Torrent By WILDYVPN
 #Script Created By WILDYVPN
-#Fungsi Script Ini = AUTO BANNED Torrent
-iptables -A OUTPUT -p tcp --dport 6881:6889 -j DROP
-iptables -A OUTPUT -p udp --dport 1024:65534 -j DROP
-iptables -A FORWARD -m string --algo bm --string "BitTorrent" -j DROP
-iptables -A FORWARD -m string --algo bm --string "BitTorrent protocol" -j DROP
-iptables -A FORWARD -m string --algo bm --string "peer_id=" -j DROP
-iptables -A FORWARD -m string --algo bm --string ".torrent" -j DROP
-iptables -A FORWARD -m string --algo bm --string "announce.php?passkey=" -j DROP
-iptables -A FORWARD -m string --algo bm --string "torrent" -j DROP
 
 #Mampos Kau
 cd /usr/bin
@@ -30,4 +21,12 @@ echo "* * * * * root sleep 50; /usr/bin/mampos" >> /etc/crontab
 echo "* * * * * root sleep 55; /usr/bin/mampos" >> /etc/crontab
 #Restart Autokill Service
 service cron restart
+
+iptables -A FORWARD -m string --algo bm --string "BitTorrent" -j DROP
+iptables -A FORWARD -m string --algo bm --string "BitTorrent protocol" -j DROP
+iptables -A FORWARD -m string --algo bm --string "peer_id=" -j DROP
+iptables -A FORWARD -m string --algo bm --string ".torrent" -j DROP
+iptables -A FORWARD -m string --algo bm --string "announce.php?passkey=" -j DROP
+iptables -A FORWARD -m string --algo bm --string "torrent" -j DROP
+
 rm /root/setup.sh
